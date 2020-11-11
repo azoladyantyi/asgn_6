@@ -14,11 +14,14 @@
         <Entry x:Name="Dep_reason" Placeholder="Enter reason"/>
         <Button Text="Deposit" Clicked="ButtonToDeposit_Clicked"/>
 
-        <Entry  Text="Widthdraw Money"/>
-        <Button Clicked="Button_Clicked"/>
+        <Entry x:Name="Withdraw_Money" Keyboard="Numeric" Placeholder="Enter amount you want to widthdra"/>
+        <Entry x:Name="reason_withdraw" Placeholder="Please enter a reason for your widthdrawl"/>
+        <Button Text=" Withdraw Money" Clicked="ButtonToWithdraw_Clicked"/>
 
-        <Entry  Text="Display Transactions"/>
-        <Button Clicked="Button_Clicked"/>
+        <Button Text="TransactionHistory" Clicked="ButtonToTransactions_Clicked"/>
+        <ScrollView>
+            <Label x:Name="TransactionHistory" Text="TransactionsHistory"/>
+        </ScrollView>
 
         <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
         <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>

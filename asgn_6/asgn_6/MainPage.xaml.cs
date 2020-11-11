@@ -13,25 +13,39 @@ namespace asgn_6
     {
 
         Bank fnb;
-        Customer newCustomer;
-        BankAccount account;
+        Customer newCustomerInfo;
+        BankAccount accountNum;
         public MainPage()
         {
 
             InitializeComponent();
-            fnb = new Bank("First National Bank", 41515, "Kenilworth");
-            newCustomer = new Customer("776645424", "10 me at Home", "Bob", "The builder");
-            fnb.AddCustomer(newCustomer);
-            account = newCustomer.ApplyForBankAccount();
+            fnb = new Bank("First National Bank", 25123, "Cape Town");
+            newCustomerInfo = new Customer("6574746878", "16581 Diya Street", "Philippi", "7750");
+            fnb.AddCustomer(newCustomerInfo);
+            accountNum = newCustomerInfo.ApplyForBankAccount();
 
         }
         private async void ButtonToDeposit_Clicked(object sender, EventArgs e)
         {
             decimal amount = Decimal.Parse(Deposit_Money.Text.ToString());
             string reason = Dep_reason.Text.ToString();
-            account.DepositMoney(amount, DateTime.Now, reason);
+            accountNum.DepositMoney(amount, DateTime.Now, reason);
             await DisplayAlert("Information!", $"You have deposted R{amount}", "Ok");
         }
+
+        private async void ButtonToWithdraw_Clicked(object sender, EventArgs e)
+        {
+            decimal amount = Decimal.Parse(Withdraw_Money.Text.ToString());
+            string reason = reason_withdraw.Text.ToString();
+            accountNum.WithdrawMoney(amount, DateTime.Now, reason);
+            await DisplayAlert("Information!", $"You have widthdrawn R{amount}", "Ok");
+        }
+        private void ButtonToTransactions_Clicked(object sender, EventArgs e)
+        {
+            string history = accountNum.GetTransactionHistory();
+            TransactionHistory.Text = history;
+        }
+
 
         private void Button_Clicked(object sender, EventArgs e)
         {
